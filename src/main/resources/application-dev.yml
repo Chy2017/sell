@@ -1,0 +1,24 @@
+server:
+  port: 9999
+  servlet:
+    context-path: /sell
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.1.6:3306/sell?characterEncoding=utf-8&useSSL=false
+    username: root
+    password: 123456
+  jpa:
+    hibernate:
+      ddl-auto: update
+      #这里如果是create，每次会重新建表，所以改为update
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    #设置正确的Hibernate SQL方言，这里的mysql版本5，不能缺省，否则报错；这里5后面不加InnoDB的话，默认是MyISAM。
+#logging:
+      ##  pattern:
+      ##    console: "%d - %msg%n"
+      ##  # path: D:\xiong\IdeaProjects\log
+    ##  file: D:\xiong\IdeaProjects\log\sell_log.log
+    ##  # file：file同path，可以输出完整日志，不过可以自己定义日志文件的名字
