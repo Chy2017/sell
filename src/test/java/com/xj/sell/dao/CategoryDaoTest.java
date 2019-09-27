@@ -9,28 +9,28 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.transaction.Transactional;
-import java.lang.reflect.Array;
+
 import java.util.Arrays;
 import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class ProductCategoryDaoTest {
+public class CategoryDaoTest {
 
     @Autowired
-    private ProductCategoryDao dao;
+    private CategoryDao dao;
 
     @Test
     public void findOneTest(){
-        ProductCategory productCategory = dao.findById(1).orElse(null);
-        System.out.println(productCategory.toString());
+        ProductCategory category = dao.findById(1).orElse(null);
+        System.out.println(category.toString());
     }
 
     @Test
     @Transactional //回滚事务，可以让测试的数据不留在数据库中，这里是完全的回滚
     public void saveTest(){
-        ProductCategory productCategory = new ProductCategory("男孩最爱",1003);
-        ProductCategory res = dao.save(productCategory);
+        ProductCategory category = new ProductCategory("男孩最爱",1003);
+        ProductCategory res = dao.save(category);
         Assert.assertNotNull(res);
     }
 

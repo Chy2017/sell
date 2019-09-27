@@ -9,7 +9,7 @@ import java.util.List;
  * Created by xj
  * 2019-09-26 22:25
  **/
-public interface ProductCategoryDao extends JpaRepository<ProductCategory, Integer> {
+public interface CategoryDao extends JpaRepository<ProductCategory, Integer> {
 
     List<ProductCategory> findByCategoryTypeIn(List<Integer> categoryTypeList);
 }
